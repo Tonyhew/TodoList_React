@@ -1,0 +1,30 @@
+.wrap {
+    width: 1000px;
+    margin: 20px auto;
+}
+
+.addButton {
+    position: absolute;
+    width: 100%;
+}
+
+.activeButton {
+    margin: 0 0 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
