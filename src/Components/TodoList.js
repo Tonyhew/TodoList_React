@@ -7,26 +7,27 @@ import '../static/data'
 
 function TodoList() {
     var storage = window.localStorage
-    const [input, setInput] = useState('')
+    const [input, setInput] = useState("")
     const [list, setList] = useState([])
-
-    const getList = () => {
-        // axios.get('http://www.test.com')
-        //     .then(
-        //         (res) => {
-        //             setList(res.data.list)
-        //             storage.setItem("list", res.data.list)
-        //         }
-        //     )
-        //     .catch(
-        //         (err) => {
-        //             console.log(err)
-        //         }
-        //     )
-    }
+    let that = this
+    // const getList = () => {
+    //     axios.get('http://www.test.com')
+    //         .then(
+    //             (res) => {
+    //                 console.log(JSON.stringify(res.data.list))
+    //                 setList(res.data.list)
+    //                 storage.setItem("list", JSON.stringify(res.data.list))
+    //             }
+    //         )
+    //         .catch(
+    //             (err) => {
+    //                 console.log(err)
+    //             }
+    //         )
+    // }
 
     useEffect(() => {
-        getList()
+        // getList()
         setList(JSON.parse(storage.getItem("list")))
     }, [])
 
@@ -35,17 +36,18 @@ function TodoList() {
     }
 
     const addList = () => {
-        list.push(input)
+        JSON.stringify(list.push(input))
+        console.log(list)
         storage.setItem("list", JSON.stringify(list))
-        setInput('')
+        setInput("")
     }
 
     const delList = (e) => {
         let index = e.target.getAttribute('data-index')
         let arr = JSON.parse(JSON.stringify(list))
-        console.log(arr)
         arr.splice(index, 1)
-        setList(arr)
+        setList(storage.setItem("list", JSON.stringify(arr)))
+        
     }
 
     return (
